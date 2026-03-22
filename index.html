@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на День Рождения</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a;
+            font-family: 'Montserrat', sans-serif;
+            color: #f8fafc;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .card-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            perspective: 1000px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .gold-accent {
+            color: #eab308;
+            font-family: 'Playfair Display', serif;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .sparkle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); opacity: 0.3; }
+            50% { transform: translateY(-20px); opacity: 0.6; }
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #eab308, transparent);
+            margin: 25px 0;
+        }
+
+        .btn-confirm {
+            background: #eab308;
+            color: #0f172a;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .btn-confirm:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
+            background: #facc15;
+        }
+
+        .info-block {
+            margin: 15px 0;
+        }
+
+        .info-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #94a3b8;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .location-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #eab308;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .location-link:hover {
+            opacity: 0.8;
+        }
+
+        #confirmation-msg {
+            display: none;
+            margin-top: 20px;
+            color: #4ade80;
+            font-weight: 600;
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <!-- Анимированные частицы -->
+        <div class="sparkle" style="top: 10%; left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
+        <div class="sparkle" style="top: 20%; right: 15%; width: 6px; height: 6px; animation-delay: 1s;"></div>
+        <div class="sparkle" style="bottom: 15%; left: 20%; width: 3px; height: 3px; animation-delay: 2s;"></div>
+        <div class="sparkle" style="bottom: 10%; right: 25%; width: 5px; height: 5px; animation-delay: 1.5s;"></div>
+
+        <div class="card">
+            <h2 class="text-sm tracking-[0.3em] uppercase mb-4 text-slate-400">Приглашение</h2>
+            <h1 class="text-5xl gold-accent mb-2">День Рождения</h1>
+            <p class="italic font-light mb-8 text-slate-300">Буду рад разделить этот особенный вечер с тобой</p>
+            
+            <div class="divider"></div>
+
+            <div class="grid grid-cols-2 gap-4 my-8">
+                <div class="info-block border-r border-slate-700">
+                    <div class="info-label">Дата</div>
+                    <div class="info-value">23 Марта</div>
+                </div>
+                <div class="info-block">
+                    <div class="info-label">Время</div>
+                    <div class="info-value">19:00</div>
+                </div>
+            </div>
+
+            <div class="info-block mt-8">
+                <div class="info-label">Место проведения</div>
+                <div class="info-value mb-1">Ресторан Batumi</div>
+                <div class="text-sm text-slate-400">ул. Саякбая Каралаева 13/11a</div>
+                
+                <a href="https://2gis.kg/bishkek/search/Саякбая%20Каралаева%2013%2F11a" target="_blank" class="location-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                    </svg>
+                    Открыть в картах
+                </a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="py-4">
+                <button class="btn-confirm" onclick="confirmAttendance()">Я приду!</button>
+                <div id="confirmation-msg">Отлично, жду тебя! ✨</div>
+            </div>
+            
+            <p class="mt-4 text-[10px] text-slate-500 uppercase tracking-[0.4em]">До встречи на празднике</p>
+        </div>
+    </div>
+
+    <script>
+        function confirmAttendance() {
+            const btn = document.querySelector('.btn-confirm');
+            const msg = document.getElementById('confirmation-msg');
+            
+            btn.style.display = 'none';
+            msg.style.display = 'block';
+            
+            // Создаем эффект конфетти (упрощенный)
+            for(let i = 0; i < 25; i++) {
+                createParticle();
+            }
+        }
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'sparkle';
+            const size = Math.random() * 8 + 4;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.background = '#eab308';
+            particle.style.left = '50%';
+            particle.style.top = '70%';
+            particle.style.opacity = '1';
+            
+            document.querySelector('.card').appendChild(particle);
+            
+            const destX = (Math.random() - 0.5) * 450;
+            const destY = -200 - Math.random() * 300;
+            
+            particle.animate([
+                { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                { transform: `translate(${destX}px, ${destY}px) scale(0)`, opacity: 0 }
+            ], {
+                duration: 1200 + Math.random() * 800,
+                easing: 'cubic-bezier(0, .9, .57, 1)',
+                fill: 'forwards'
+            });
+
+            setTimeout(() => particle.remove(), 2500);
+        }
+    </script>
+</body>
+</html>
